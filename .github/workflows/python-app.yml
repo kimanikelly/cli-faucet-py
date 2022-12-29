@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip3install flake8 pytest
+          pip3 install flake8 pytest
           pip install web3
           pip install -i https://test.pypi.org/simple/ smart-contracts-sdk
           npm install ganache
