@@ -1,5 +1,6 @@
 import pytest
 
+from app.account_model import *
 from src.token_erc20 import Token
 from src.deploy import *
 from src.local_addresses import *
@@ -16,7 +17,7 @@ def token():
     return Token(w3.eth.default_account, 1337, "http://localhost:8545")
 
 
-def testing(token):
+def test_account_class(token):
 
     token.mint(mint_amount)
 
@@ -24,4 +25,8 @@ def testing(token):
 
     token.fund_account()
 
-    print(token.fetch_balance_of(w3.eth.default_account))
+    user_account = Account(w3.eth.default_account, token.address, mint_amount)
+
+    assert(user_account.fetch_account_address() == w3.eth.default_account)
+    assert(user_account.fetch_contract_address() == token.address)
+    assert(user_account.fetch_amount() == mint_amount)
