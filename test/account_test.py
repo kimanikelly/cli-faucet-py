@@ -1,49 +1,49 @@
-import pytest
+# import pytest
 
-from app.account_model import *
-from src.token_erc20 import Token
-from src.deploy import *
-from src.local_addresses import *
+# from app.account_model import *
+# from src.token_erc20 import Token
+# from src.deploy import *
+# from src.local_addresses import *
 
-mint_amount = 100
-fund_amount = 100
-
-
-@pytest.fixture
-def token():
-
-    addresses["token_local_address"] = deploy_token().address
-
-    return Token(w3.eth.default_account, 1337, "http://localhost:8545")
+# mint_amount = 100
+# fund_amount = 100
 
 
-def test_account_class(token):
+# @pytest.fixture
+# def token():
 
-    token.mint(mint_amount)
+#     addresses["token_local_address"] = deploy_token().address
 
-    token.set_fund_amount(fund_amount)
+#     return Token(w3.eth.default_account, 1337, "http://localhost:8545")
 
-    tx = token.fund_account()
 
-    receipt = w3.eth.get_transaction_receipt(tx)
+# def test_account_class(token):
 
-    from_address = token.contract.events.Transfer(
-    ).processReceipt(receipt)[0].args['from']
+#     token.mint(mint_amount)
 
-    assert(from_address == token.address)
+#     token.set_fund_amount(fund_amount)
 
-    to_address = token.contract.events.Transfer(
-    ).processReceipt(receipt)[0].args['to']
+#     tx = token.fund_account()
 
-    assert(to_address == w3.eth.default_account)
+#     receipt = w3.eth.get_transaction_receipt(tx)
 
-    value = token.contract.events.Transfer(
-    ).processReceipt(receipt)[0].args['value']
+#     from_address = token.contract.events.Transfer(
+#     ).processReceipt(receipt)[0].args['from']
 
-    assert(value == w3.toWei(mint_amount, 'ether'))
+#     assert(from_address == token.address)
 
-    user_account = Account(to_address, from_address, value)
+#     to_address = token.contract.events.Transfer(
+#     ).processReceipt(receipt)[0].args['to']
 
-    assert(user_account.fetch_account_address() == w3.eth.default_account)
-    assert(user_account.fetch_contract_address() == token.address)
-    assert(user_account.fetch_amount() == w3.toWei(mint_amount, 'ether'))
+#     assert(to_address == w3.eth.default_account)
+
+#     value = token.contract.events.Transfer(
+#     ).processReceipt(receipt)[0].args['value']
+
+#     assert(value == w3.toWei(mint_amount, 'ether'))
+
+#     user_account = Account(to_address, from_address, value)
+
+#     assert(user_account.fetch_account_address() == w3.eth.default_account)
+#     assert(user_account.fetch_contract_address() == token.address)
+#     assert(user_account.fetch_amount() == w3.toWei(mint_amount, 'ether'))

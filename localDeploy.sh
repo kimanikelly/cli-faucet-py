@@ -1,1 +1,0 @@
-python3 ./app/local_deploy.py
