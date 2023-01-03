@@ -1,1 +1,1 @@
-python3 ./app/faucet.py $1
+python3 ./app/faucet.py
