@@ -1,0 +1,1 @@
+python3 ./app/faucet.py fund-account $1

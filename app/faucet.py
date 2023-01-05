@@ -52,5 +52,10 @@ def eth_balance_of(address):
         f"The GoerliETH balance of {click.style(address,fg='magenta')} is: {click.style(w3.fromWei(w3.eth.get_balance(address),'ether'),fg='magenta')} GoerliETH")
 
 
+@cli.command(help="Transfers the fund amount from Token.sol to the connected wallet")
+def fund_account():
+    token.fund_account()
+
+
 if __name__ == '__main__':
     cli()
