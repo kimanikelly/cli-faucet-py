@@ -6,15 +6,26 @@ from src.token_erc20 import Token
 
 dotenv.load_dotenv()
 
-user_address = os.getenv("USER_ADDRESS")
 
-goerli_provider = os.getenv("GOERLI_PROVIDER")
+assert os.getenv(
+    "WALLET_ADDRESS") is not None, "You must set WALLET_ADDRESS environment variable"
+assert os.getenv("WALLET_ADDRESS").startswith(
+    "0x"), "Wallet address must start with 0x hex prefix"
 
-goerli_chain_id = 5
+assert os.getenv(
+    "PRIVATE_KEY") is not None, "You must set PRIVATE_KEY environment variable"
+assert os.getenv("PRIVATE_KEY").startswith(
+    "0x"), "Private key must start with 0x hex prefix"
 
-w3 = Web3(Web3.HTTPProvider(goerli_provider))
+assert os.getenv(
+    "GOERLI_PROVIDER") is not None, "You must set GOERLI_PROVIDER environment variable"
 
-token = Token(user_address, goerli_chain_id, goerli_provider)
+w3 = Web3(Web3.HTTPProvider(os.getenv("GOERLI_PROVIDER")))
+
+token = Token(os.getenv("WALLET_ADDRESS"), 5,
+              os.getenv("GOERLI_PROVIDER"))
+
+nonce = w3.eth.get_transaction_count(os.getenv("WALLET_ADDRESS"))
 
 
 @click.group()
@@ -54,7 +65,19 @@ def eth_balance_of(address):
 
 @cli.command(help="Transfers the fund amount from Token.sol to the connected wallet")
 def fund_account():
-    token.fund_account()
+
+    tx = token.fund_account().build_transaction({
+        'chainId': 5,
+        'from': os.getenv("WALLET_ADDRESS"),
+        'nonce': nonce
+    })
+
+    sign_tx = w3.eth.account.sign_transaction(
+        tx, private_key=os.getenv("PRIVATE_KEY"))
+
+    tx_hash = w3.eth.send_raw_transaction(sign_tx.rawTransaction)
+
+    print(tx_hash)
 
 
 if __name__ == '__main__':
