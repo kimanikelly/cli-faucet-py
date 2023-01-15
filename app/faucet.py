@@ -1,6 +1,7 @@
 import click
 import os
 import dotenv
+from hexbytes import HexBytes
 from web3 import Web3
 from src.token_erc20 import Token
 
@@ -66,18 +67,15 @@ def eth_balance_of(address):
 @cli.command(help="Transfers the fund amount from Token.sol to the connected wallet")
 def fund_account():
 
-    tx = token.fund_account().build_transaction({
-        'chainId': 5,
-        'from': os.getenv("WALLET_ADDRESS"),
-        'nonce': nonce
-    })
-
     sign_tx = w3.eth.account.sign_transaction(
-        tx, private_key=os.getenv("PRIVATE_KEY"))
+        token.fund_account(), private_key=os.getenv("PRIVATE_KEY"))
 
     tx_hash = w3.eth.send_raw_transaction(sign_tx.rawTransaction)
 
-    print(tx_hash)
+    goerli_url = "https://goerli.etherscan.io/tx/" + HexBytes.hex(tx_hash)
+
+    click.echo(
+        f"Transaction Hash: {click.style(goerli_url,fg='magenta')}")
 
 
 if __name__ == '__main__':
