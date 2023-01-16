@@ -6,3 +6,4 @@
 
 - [fund-amount](docs/fundAmount.md)
 - [contract-balance](docs/contractBalance.md)
+- [balance-of](docs/balanceOf.md)
