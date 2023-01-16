@@ -1,3 +1,5 @@
+Execute the shell script to view the amount of TT transferred to a wallet
+
 ```
 sh fundAmount.sh
 ```

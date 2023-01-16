@@ -1,3 +1,5 @@
+Execute the shell script to view the amount of TT Token.sol holds in the contract
+
 ```
 sh contractBalance.sh
 ```

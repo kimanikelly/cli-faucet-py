@@ -1,3 +1,5 @@
+Execute the shell script to view the amount of GoerliETH an address holds in their wallet
+
 ```
 sh goerliBalanceOf.sh <ADDRESS>
 ```

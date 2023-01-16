@@ -1,3 +1,5 @@
+Execute the shell script to view the amount of TT an address holds in their wallet
+
 ```
 sh balanceOf.sh <ADDRESS>
 ```

@@ -1,3 +1,5 @@
+Execute the shell script to transfer the fund amount from Token.sol to the connected wallet
+
 ```
 sh fundAccount.sh
 ```
