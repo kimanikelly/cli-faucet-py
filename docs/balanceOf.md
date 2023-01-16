@@ -1,5 +1,5 @@
 ```
-sh goerliBalanceOf.sh <ADDRESS>
+sh balanceOf.sh <ADDRESS>
 ```
 
-![Example of the goerli-balance-of command](/docs/goerliBalanceOf.png "Screenshot of the goerli-balance-of command")
+![Example of the balance-of command](/docs/balanceOf.png "Screenshot of the balance-of command")
