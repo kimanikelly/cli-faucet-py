@@ -28,7 +28,7 @@ Token.sol contract address
 0xC8D16Da2B9b9a30c0CADcF72B91a4A9f1739f39e
 ```
 
-Token.sol source Code
+Token.sol source code
 
 https://github.com/kimanikelly/contracts/blob/main/contracts/Token.sol
 
