@@ -8,6 +8,16 @@
 https://github.com/kimanikelly/cli-faucet-py.git
 ```
 
+## Setup Environment Variables
+
+Create a .env file
+
+```
+touch .env
+```
+
+After creating the .env file set the environment variables by using [.env.example](.env.example) as a template
+
 ## CLI Commands
 
 - [fund-amount](docs/fundAmount.md)
