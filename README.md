@@ -4,8 +4,16 @@
 
 ## Source Code Installation
 
+Clone the repo
+
 ```
 https://github.com/kimanikelly/cli-faucet-py.git
+```
+
+Install the dependencies
+
+```
+pip install -r ./requirements.txt
 ```
 
 ## Token.sol (TT) Information
