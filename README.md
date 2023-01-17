@@ -20,9 +20,7 @@ pip install -r ./requirements.txt
 
 Token.sol Goerli Etherscan link
 
-```
 https://goerli.etherscan.io/address/0xc8d16da2b9b9a30c0cadcf72b91a4a9f1739f39e
-```
 
 Token.sol contract address
 
@@ -32,9 +30,7 @@ Token.sol contract address
 
 Token.sol source Code
 
-```
 https://github.com/kimanikelly/contracts/blob/main/contracts/Token.sol
-```
 
 ## Setup Environment Variables
 
