@@ -42,6 +42,10 @@ touch .env
 
 After creating the .env file set the environment variables by using [.env.example](.env.example) as a template
 
+## Import Token.sol (TT) to a MetaMask wallet
+
+- [How to import ](docs/addTokenToWallet.md)
+
 ## CLI Commands
 
 - [fund-amount](docs/fundAmount.md)
