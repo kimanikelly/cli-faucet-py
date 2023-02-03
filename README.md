@@ -7,7 +7,7 @@
 Clone the repo
 
 ```
-https://github.com/kimanikelly/cli-faucet-py.git
+git clone https://github.com/kimanikelly/cli-faucet-py.git
 ```
 
 Install the dependencies
