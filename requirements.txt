@@ -2,4 +2,4 @@ click==8.0.4
 python-dotenv==0.21.0
 hexbytes==0.3.0
 web3==5.31.1
-smart-contracts-sdk==1.0.3
+smart-contracts-sdk==1.0.4
