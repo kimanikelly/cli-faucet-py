@@ -38,14 +38,14 @@ def cli():
 def fund_amount():
 
     click.echo(
-        f"The fund amount is: {click.style(w3.fromWei(token.fetch_fund_amount(), 'ether'),fg='magenta')} TT")
+        f"The fund amount is: {click.style(w3.from_wei(token.fetch_fund_amount(), 'ether'),fg='magenta')} TT")
 
 
 @cli.command(help="View the amount of TT Token.sol holds in the contract")
 def contract_balance():
 
     click.echo(
-        f"The contract balance is: {click.style(w3.fromWei(token.fetch_balance_of(token.address),'ether'),fg='magenta')} TT")
+        f"The contract balance is: {click.style(w3.from_wei(token.fetch_balance_of(token.address),'ether'),fg='magenta')} TT")
 
 
 @cli.command(help="View the amount of TT an address holds in their wallet")
@@ -53,7 +53,7 @@ def contract_balance():
 def balance_of(address):
 
     click.echo(
-        f"The TT balance of {click.style(address,fg='magenta')} is: {click.style(w3.fromWei(token.fetch_balance_of(address),'ether'),fg='magenta')} TT")
+        f"The TT balance of {click.style(address,fg='magenta')} is: {click.style(w3.from_wei(token.fetch_balance_of(address),'ether'),fg='magenta')} TT")
 
 
 @cli.command("goerli-balance-of", help="View the amount of GoerliETH an address holds in their wallet")
@@ -61,7 +61,7 @@ def balance_of(address):
 def eth_balance_of(address):
 
     click.echo(
-        f"The GoerliETH balance of {click.style(address,fg='magenta')} is: {click.style(w3.fromWei(w3.eth.get_balance(address),'ether'),fg='magenta')} GoerliETH")
+        f"The GoerliETH balance of {click.style(address,fg='magenta')} is: {click.style(w3.from_wei(w3.eth.get_balance(address),'ether'),fg='magenta')} GoerliETH")
 
 
 @cli.command(help="Transfers the fund amount from Token.sol to the connected wallet")
